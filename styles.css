@@ -6,8 +6,11 @@
 
 * {
     text-align: center;
-    padding: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
+    font: inherit;
+}
+
+.h1 {
+    padding: 1.5em;
 }
 
 .content {
@@ -28,6 +31,13 @@
     grid-column: span 2;
 }
 
+.input-display {
+    height: 1.5ch;
+    font-size: 1.5ch;
+    color: #70757a;
+    padding-bottom: 1.5em;
+}
+
 .btn:hover:not(#display) {
     cursor: pointer;
 }
@@ -35,5 +45,11 @@
 #display {
     grid-column: span 4;
     text-align: right;
-    background-color: white;
+    background-color: #FFFFFF;
 }
+
+#display > * {
+    text-align: inherit;
+}
+
+

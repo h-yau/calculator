@@ -1,5 +1,7 @@
 const buttons = document.querySelectorAll('.calculator-container .btn');
 const displayScreen = document.querySelector('#display');
+const inputDisplay = displayScreen.querySelector('.input-display');
+const answerDisplay = displayScreen.querySelector('.answer-display');
 
 buttons.forEach(button => {
     button.addEventListener("click", (e) => {
@@ -11,11 +13,12 @@ buttons.forEach(button => {
 
 function changeDisplayScreen(input) {
     if (input == "C") {
-        displayScreen.textContent = "0";
+        answerDisplay.textContent = "0";
         return;
     }
     if (input == "AC") {
-        displayScreen.textContent = "0"
+        inputDisplay.textContent = "";
+        answerDisplay.textContent = "0";
         // Add some more functions to clear history
         return;
     }
