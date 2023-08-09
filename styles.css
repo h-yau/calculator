@@ -19,13 +19,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.25rem;
-    width: min(95%, 25rem);
+    width: min(95%, 20rem);
     padding: 0.5rem;
     background-color: #999999; // to be changed later
 }
 
 .col-span-2 {
     grid-column: span 2;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 #display {
