@@ -19,8 +19,31 @@ function changeDisplayScreen(input) {
     if (input == "AC") {
         inputDisplay.textContent = "";
         answerDisplay.textContent = "0";
-        // Add some more functions to clear history
         return;
     }
-    displayScreen.textContent = input;
+    if (Number.isInteger(+input) || input == "."){
+        // check last string if it already contains a "."
+        if (!canItDecimal(answerDisplay.textContent) && input == ".") {
+            return;
+        }
+        inputDisplay.textContent += input;
+        if (answerDisplay.textContent == "0" || answerDisplay.textContent == "") {
+            answerDisplay.textContent = input;
+        } else {
+            answerDisplay.textContent += input;
+        }
+        return;
+    }
+
+    operations(input, inputDisplay);
+    return;
+}
+
+function canItDecimal(lastInput) {
+    return !lastInput.toString().includes(".");
+}
+
+
+function operations(operator, inputs) {
+    
 }
