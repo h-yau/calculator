@@ -63,10 +63,10 @@ function calculate(operator, inputs) {
     a = +firstNum;
     b = +secondNum;
     this.methods = {
-        "÷": (a, b) => a / b,
+        "÷": (a, b) => (b != 0) ? a / b : "ERROR",
         "x": (a, b) => a * b,
         "-": (a, b) => a - b,
-        "+": (a, b) => (b != 0) ? a + b : "ERROR",
+        "+": (a, b) => a + b,
     };
     return this.methods[opt](a, b);
 }
