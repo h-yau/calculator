@@ -13,6 +13,9 @@ buttons.forEach(button => {
 
 function changeDisplayScreen(input) {
     if (input == "C") {
+        if (!isNaN(inputDisplay.textContent)) {
+            inputDisplay.textContent = "";
+        }
         answerDisplay.textContent = "0";
         return;
     }
@@ -21,12 +24,22 @@ function changeDisplayScreen(input) {
         answerDisplay.textContent = "0";
         return;
     }
+
+    // when input is a digit or a decimal
     if (Number.isInteger(+input) || input == "."){
 
         // check last string if it already contains a "."
         if (!canItDecimal(answerDisplay.textContent) && input == ".") {
             return;
         }
+
+        // chekc inputDisplay.textContent to see what's in there
+        if (isNaN(inputDisplay.textContent)) {
+            inputDisplay.textContent += input;
+            answerDisplay.textContent = input;
+            return;
+        }
+
         inputDisplay.textContent += input;
         if (answerDisplay.textContent == "0" || answerDisplay.textContent == "") {
             answerDisplay.textContent = input;
@@ -50,12 +63,12 @@ function canItDecimal(lastInput) {
 
 function operations(operator, inputs) {
     if (operator == "=" && !isNaN(inputs)) {
-        return inputs;
+        return `Ans = ${inputs}`;
     }
     if (isNaN(inputs)) {
         return calculate(operator, inputs);
     }
-    return inputs + ` ${operator} `; //// needs to work on this
+    return inputs + ` ${operator} `;
 }
 
 function calculate(operator, inputs) { 
@@ -68,5 +81,6 @@ function calculate(operator, inputs) {
         "-": (a, b) => a - b,
         "+": (a, b) => a + b,
     };
+    // returns a number
     return this.methods[opt](a, b);
 }
