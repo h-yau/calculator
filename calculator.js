@@ -22,6 +22,7 @@ function changeDisplayScreen(input) {
         return;
     }
     if (Number.isInteger(+input) || input == "."){
+
         // check last string if it already contains a "."
         if (!canItDecimal(answerDisplay.textContent) && input == ".") {
             return;
@@ -35,7 +36,10 @@ function changeDisplayScreen(input) {
         return;
     }
 
-    operations(input, inputDisplay);
+    // when input is an operator
+    const operationResult = operations(input, inputDisplay.textContent);
+    (!isNaN(operationResult)) ? inputDisplay.textContent = answerDisplay.textContent = operationResult
+                               :inputDisplay.textContent = operationResult;
     return;
 }
 
@@ -45,5 +49,24 @@ function canItDecimal(lastInput) {
 
 
 function operations(operator, inputs) {
-    
+    if (operator == "=" && !isNaN(inputs)) {
+        return inputs;
+    }
+    if (isNaN(inputs)) {
+        return calculate(operator, inputs);
+    }
+    return inputs + ` ${operator} `; //// needs to work on this
+}
+
+function calculate(operator, inputs) { 
+    [firstNum, opt, secondNum] = inputs.split(" ");
+    a = +firstNum;
+    b = +secondNum;
+    this.methods = {
+        "÷": (a, b) => a / b,
+        "x": (a, b) => a * b,
+        "-": (a, b) => a - b,
+        "+": (a, b) => (b != 0) ? a + b : "ERROR",
+    };
+    return this.methods[opt](a, b);
 }
