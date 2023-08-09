@@ -2,7 +2,7 @@
 
 Live preview: [Calculator Preview](https://nzxzn.github.io/calculator/)
 
-Welcome to the On-Screen Calculator project! This project combines your JavaScript, HTML, and CSS skills to create a functional calculator that can perform basic arithmetic operations. The goal is to create an interactive calculator that allows users to input numbers, perform calculations, and display the results.
+Welcome to the On-Screen Calculator Project! If you're excited about putting your JavaScript, HTML, and CSS skills to the test, you're in the right place. Get ready to construct a fully functional calculator that can handle basic arithmetic operations. This project is all about creating an interactive calculator where users can input numbers, perform calculations, and see the results in action.
 
 ## Table of Contents
 
@@ -15,11 +15,11 @@ Welcome to the On-Screen Calculator project! This project combines your JavaScri
 
 ## Introduction
 
-Congratulations on reaching this point in your JavaScript learning journey! The On-Screen Calculator project is designed to help you apply your knowledge and skills in a real-world scenario. You'll be building a calculator with interactive buttons, display functionality, and the ability to perform arithmetic operations.
+As a part of my journey in the Odin Project, this On-Screen Calculator project is an opportunity for me to apply my knowledge and skills in a real-world scenario. I have built a calculator with interactive buttons, display functionality, and the ability to perform arithmetic operations.
 
 ## Project Overview
 
-In this project, you will:
+In this project, I have:
 
 - Create functions for basic math operations (add, subtract, multiply, divide).
 - Implement a function to evaluate expressions using the above operations.
