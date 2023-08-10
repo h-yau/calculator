@@ -53,15 +53,14 @@ function changeDisplayScreen(input) {
     }
 
     // when input is a digit or a decimal
-    //////////// weird behavior after first input, only one digit is showing up on answerDisplay at a time
-    if (Number.isInteger(+input) || input == "."){
+        if (Number.isInteger(+input) || input == "."){
 
         // check last string if it already contains a "."
         if (!canItDecimal(answerDisplay.textContent) && input == ".") {
             return;
         }
 
-        // chekc inputDisplay.textContent to see what's in there
+        // checl inputDisplay.textContent to see what's in there
         if (isNaN(inputDisplay.textContent)) {
             const inputContent = inputDisplay.textContent.trim();
             const lastElement = inputContent.charAt(inputContent.length - 1);
