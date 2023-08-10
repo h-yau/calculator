@@ -12,16 +12,31 @@ buttons.forEach(button => {
 
 
 function changeDisplayScreen(input) {
+
+    // check for ERROR
+    if (inputDisplay.textContent == "ERROR") {
+        if (input != "AC") {
+            return;
+        }
+    }
+
+    // check for Ans = something
+    if (inputDisplay.textContent.includes("Ans = ")) {
+        inputDisplay.textContent = inputDisplay.textContent.replace("Ans = ", "");
+    }
+
+    // for clearing displays
     if (input == "C") {
         if (!isNaN(inputDisplay.textContent)) {
-            inputDisplay.textContent = "";
+            clearInputDisplay();
         }
-        answerDisplay.textContent = "0";
+        clearAnswerDisplay();
+        ///////// needs to consider "C" changing a number (multiple digits too) that is already in inputDisplay
         return;
     }
     if (input == "AC") {
-        inputDisplay.textContent = "";
-        answerDisplay.textContent = "0";
+        clearInputDisplay();
+        clearAnswerDisplay();
         return;
     }
 
@@ -51,9 +66,21 @@ function changeDisplayScreen(input) {
 
     // when input is an operator
     const operationResult = operations(input, inputDisplay.textContent);
-    (!isNaN(operationResult)) ? inputDisplay.textContent = answerDisplay.textContent = operationResult
-                               :inputDisplay.textContent = operationResult;
+    if (!isNaN(operationResult)){
+        inputDisplay.textContent = "Ans = " + operationResult;
+        answerDisplay.textContent = operationResult;
+    } else {
+        inputDisplay.textContent = operationResult;
+    }
     return;
+}
+
+function clearInputDisplay() {
+    inputDisplay.textContent = "";
+}
+
+function clearAnswerDisplay() {
+    answerDisplay.textContent = "0";
 }
 
 function canItDecimal(lastInput) {
