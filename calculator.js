@@ -22,7 +22,12 @@ function changeDisplayScreen(input) {
 
     // check for Ans = something
     if (inputDisplay.textContent.includes("Ans = ")) {
-        inputDisplay.textContent = inputDisplay.textContent.replace("Ans = ", "");
+        if (!isNaN(input)) {
+            clearInputDisplay();
+            clearAnswerDisplay();
+        } else {
+            inputDisplay.textContent = inputDisplay.textContent.replace("Ans = ", "");
+        }
     }
 
     // for clearing displays
@@ -30,8 +35,15 @@ function changeDisplayScreen(input) {
         if (!isNaN(inputDisplay.textContent)) {
             clearInputDisplay();
         }
+    // check for "C" when changing a number mid-function
+        const lastElement = inputDisplay.textContent.split(" ").pop();
+        if (!isNaN(lastElement)) {
+            inputDisplay.textContent = inputDisplay.textContent.replace(lastElement, "");
+        }
+
         clearAnswerDisplay();
-        ///////// needs to consider "C" changing a number (multiple digits too) that is already in inputDisplay
+
+
         return;
     }
     if (input == "AC") {
