@@ -1,6 +1,6 @@
 # On-Screen Calculator Project
 
-Live preview: [Calculator Preview](https://nzxzn.github.io/calculator/)
+Live preview: [Calculator Preview](https://h-yau.github.io/calculator/)
 
 Welcome to the On-Screen Calculator Project! If you're excited about putting your JavaScript, HTML, and CSS skills to the test, you're in the right place. Get ready to construct a fully functional calculator that can handle basic arithmetic operations. This project is all about creating an interactive calculator where users can input numbers, perform calculations, and see the results in action.
 
